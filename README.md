@@ -1,27 +1,30 @@
 # InputFit
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+## install jquery and save to project dependencies
 
-## Development server
+npm install jquery --save
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## install typings for jquery, used by typescript. save to dev dependencies
 
-## Code scaffolding
+npm install @types/jquery --save-dev
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## install the plugin. you can also download the plugin file independently and include in a vendors folder in your project, if the plugin is not available on npm
 
-## Build
+## include jquery in tsconfig types array
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+"types": [
+  "jquery"
+]
 
-## Running unit tests
+## include jquery and the plugin script in .angular-cli.json as global scripts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+"scripts": [
+  "../node_modules/jquery/dist/jquery.js",
+  "<path-to-plugin-script-file>"
+]
 
-## Running end-to-end tests
+## add an interface JQuery in your local typings declaration file typings.d.ts and declare plugin function
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+interface JQuery {
+  <your-plugin-name>(options?: any): any;
+}
